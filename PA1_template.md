@@ -61,7 +61,7 @@ hist(steps_sum_per_day,breaks=20,main="Total Number of Steps per Day",xlab="Numb
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
 
 ```r
-# Display mean and median number of steps per day
+# Calculate and display mean and median number of steps per day
 mean_total_steps_per_day <- mean(steps_sum_per_day)
 mean_total_steps_per_day
 ```
@@ -138,16 +138,10 @@ new_na_count
 ```r
 # calculate sum, mean and median for the new_activity
 new_steps_sum_per_day <- tapply(new_activity$steps,new_activity$date,sum, na.rm=T)
+new_mean_total_steps_per_day <- mean(new_steps_sum_per_day)
+new_median_total_steps_per_day <- median(new_steps_sum_per_day)
 
 # Plot the histograms comparing the two
-require(xtable)
-```
-
-```
-## Loading required package: xtable
-```
-
-```r
 par(mfrow=c(1,2))
 hist(steps_sum_per_day,breaks=20,ylim=c(0,20),xlab="Sum of steps per day",main="Histogram with NAs")
 hist(new_steps_sum_per_day,breaks=20,ylim=c(0,20),xlab="Sum of steps per day",main="Histogram with Imputed NAs")
@@ -157,7 +151,6 @@ hist(new_steps_sum_per_day,breaks=20,ylim=c(0,20),xlab="Sum of steps per day",ma
 
 ```r
 # Display mean and median number of steps per day with imputed NAs
-new_mean_total_steps_per_day <- mean(new_steps_sum_per_day)
 new_mean_total_steps_per_day
 ```
 
@@ -166,7 +159,6 @@ new_mean_total_steps_per_day
 ```
 
 ```r
-new_median_total_steps_per_day <- median(new_steps_sum_per_day)
 new_median_total_steps_per_day
 ```
 
@@ -174,7 +166,7 @@ new_median_total_steps_per_day
 ## [1] 10766.19
 ```
 
-*Filling the NAs with the mean for each interval aligned the mean and the median of the total steps per day.*
+**Filling the NAs with the mean for each interval aligned the mean and the median of the total steps per day.**
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
