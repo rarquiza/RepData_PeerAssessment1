@@ -107,6 +107,9 @@ NOTE: The maximum number of steps **206.1698113** occurs at **835** interval.
 
 ## Imputing missing values
 
+#### Strategy for Imputing missing values ####
+The values for the number of steps per day is not completely random since there is a pattern to human activity. I used the average per interval to impute the NA values to enhance rather than attenuate the existing pattern if there is any.  
+
 ```r
 # Number of missing values
 na_count <- sum(is.na(activity$steps))

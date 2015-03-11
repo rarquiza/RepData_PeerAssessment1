@@ -123,6 +123,9 @@ max_interval &lt;- interval[which(steps_mean_per_interval==max(steps_mean_per_in
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
+<div id="strategy-for-imputing-missing-values" class="section level4">
+<h4>Strategy for Imputing missing values</h4>
+<p>The values for the number of steps per day is not completely random since there is a pattern to human activity. I used the average per interval to impute the NA values to enhance rather than attenuate the existing pattern if there is any.</p>
 <pre class="r"><code># Number of missing values
 na_count &lt;- sum(is.na(activity$steps))
 na_count</code></pre>
@@ -155,6 +158,7 @@ new_mean_total_steps_per_day</code></pre>
 <pre class="r"><code>new_median_total_steps_per_day</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <p><strong>Filling the NAs with the mean for each interval aligned the mean and the median of the total steps per day.</strong></p>
+</div>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
